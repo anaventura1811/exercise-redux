@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Cadastro from './pages/Cadastro';
 import ClientesCadastrados from './pages/ClientesCadastrados';
