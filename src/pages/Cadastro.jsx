@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import addClient from  '../actions';
 
 
 class Cadastro extends Component {
@@ -19,6 +21,8 @@ class Cadastro extends Component {
   resgisterClient = (event) => {
     event.preventDefault();
     const { client } = this.state;
+    const { addClientToList } = this.props;
+    addClientToList(client);
     //chama a função que faz a escrita no store do redux
   };
   render() {
@@ -43,30 +47,8 @@ class Cadastro extends Component {
   }  
 }
 
-export default Cadastro;
+const mapDispachToProps = (dispach) =>({
+  addClientToList: (client) => dispach(addClient(client)),
+});
 
-import React, { Component } from 'react';
-
-
-class Cadastro extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-  
-
-  render() {
-    return (
-      <div>
-
-      </div>
-    );
-  }
-}
-
-Cadastro.propTypes = {
-
-};
-
-export default Cadastro;
+export default connect(null, mapDispachToProps)(Cadastro);

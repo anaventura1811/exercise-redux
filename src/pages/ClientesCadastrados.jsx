@@ -1,10 +1,12 @@
 import React from 'react'
 
-function ClientesCadastrados() {
+function ClientesCadastrados(props) {
+  const { clientList } = props;
   return (
-    <div>
+    <section>
+
       
-    </div>
+    </section>
   )
 }
 
