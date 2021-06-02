@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import addClient from  '../actions';
+import { addClient } from  '../actions';
 
 
 class Cadastro extends Component {
@@ -16,14 +16,14 @@ class Cadastro extends Component {
 
   };
   handleClientInformation = ( { target }) => {
-    this.setState({ client: { [ target.id ]: target.value } });
+    this.setState((previusState) => ({ client: { ...previusState.client, [ target.id ]: target.value } }));
   };
   resgisterClient = (event) => {
     event.preventDefault();
     const { client } = this.state;
     const { addClientToList } = this.props;
+    console.log(client);
     addClientToList(client);
-    //chama a função que faz a escrita no store do redux
   };
   render() {
     const { name, age, email } = this.state;
